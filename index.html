@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<h1>Go Talks</h1>
+<p>Click on the ✓ to see the slides/code/video.</p>
+<table class="table table-striped table-responsive-md">
+	<tr><th>Topic</th><th>Speaker</th><th>Slides</th><th>Code</th><th>Video</th><th>Meetup</th></tr>
+{% for talk in site.data.talks %}
+  <tr>
+    <td>{{ talk.title }}</td>
+    <td>{{ talk.speaker }}</td>
+    <td>
+      {% if talk.slides != nil %}
+      <a href="{{ talk.slides }}">✓</a>
+      {% endif %}
+    </td>
+    <td>
+      {% if talk.code != nil %}
+      <a href="{{ talk.code }}">✓</a>
+      {% endif %}
+    </td>
+    <td>
+      {% if talk.video != nil %}
+      <a href="{{ talk.video }}">✓</a>
+      {% endif %}
+    </td>
+    <td>
+      {% if talk.meetup.date != nil %}
+      <a href="{{ talk.meetup.link }}">{{ talk.meetup.date }}</a>
+      {% endif %}
+    </td>
+  </tr>
+{% endfor %}
+</table>
